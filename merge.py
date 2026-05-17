@@ -46,7 +46,7 @@ def main():
     merger = PdfMerger()
     merger.append("pdf1.pdf")
     merger.append("pdf2.pdf")
-    merger.write("news/news.pdf")
+    merger.write("news.pdf")
     merger.close()
 
     print("Sending success notification...")
