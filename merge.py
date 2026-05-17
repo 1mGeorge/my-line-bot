@@ -40,14 +40,17 @@ def main():
         f.write(content2)
 
     print("Merging PDFs...")
+    if not os.path.exists("news"):
+        os.makedirs("news")
+        
     merger = PdfMerger()
     merger.append("pdf1.pdf")
     merger.append("pdf2.pdf")
-    merger.write("dummy.pdf")
+    merger.write("news/news.pdf")
     merger.close()
 
     print("Sending success notification...")
-    send_line_push(user_id, "The merge is complete and the Rich Menu (dummy.pdf) has been updated!", access_token)
+    send_line_push(user_id, "The merge is complete and your news.pdf has been updated!", access_token)
 
 if __name__ == "__main__":
     main()
